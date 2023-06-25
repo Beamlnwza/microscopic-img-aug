@@ -1,6 +1,14 @@
 import gradio as gr
 import os
 import imgaug.augmenters as iaa
+import glob
+
+image_dir = os.path.join(os.path.dirname(__file__), "images")
+image_files = glob.glob(os.path.join(image_dir, "*.png"))
+
+examples = []
+for image_file in image_files:
+    examples.append(image_file)
 
 aug_seq = iaa.Sequential([
     iaa.Resize({"height": 224, "width": 224}),
@@ -27,13 +35,5 @@ demo = gr.Interface(
     aug_img,
     gr.Image(type="numpy"),
     "image",
-    examples=[
-        os.path.join(os.path.dirname(__file__), "images/1.png"),
-        os.path.join(os.path.dirname(__file__), "images/2.png"),
-        os.path.join(os.path.dirname(__file__), "images/3.png"),
-        os.path.join(os.path.dirname(__file__), "images/4.png"),
-        os.path.join(os.path.dirname(__file__), "images/5.png"),
-        os.path.join(os.path.dirname(__file__), "images/6.png"),
-
-    ],
+    examples=examples,
 ).launch()
