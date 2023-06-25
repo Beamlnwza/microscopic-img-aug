@@ -1,7 +1,7 @@
 ---
 title: Imgaug Img Microscope
-emoji: 🏃
-colorFrom: red
+emoji: 🔬
+colorFrom: blue
 colorTo: red
 sdk: gradio
 sdk_version: 3.35.2

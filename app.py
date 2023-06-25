@@ -36,4 +36,4 @@ demo = gr.Interface(
         os.path.join(os.path.dirname(__file__), "images/6.png"),
 
     ],
-).launch(share=True)
+).launch()
